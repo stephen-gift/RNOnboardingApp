@@ -1,7 +1,7 @@
 import { Dimensions, SafeAreaView, StyleSheet, Text, View } from "react-native";
 import React from "react";
-
 import Onboarding from "react-native-onboarding-swiper";
+import LottieView from "lottie-react-native";
 
 const { width, height } = Dimensions.get("window");
 
@@ -14,9 +14,12 @@ const OnboardingScreen = () => {
           {
             backgroundColor: "#a7f3d0",
             image: (
-              <View>
-                <Text>Onboarding</Text>
-              </View>
+              <LottieView
+                style={styles.lottie}
+                source={require("../assets/animations/boost.json")}
+                autoPlay
+                loop
+              />
             ),
             title: "Boost Productivity",
             subtitle: "Subscribe this channel to boost your productivity level",
@@ -24,9 +27,12 @@ const OnboardingScreen = () => {
           {
             backgroundColor: "#fef3c7",
             image: (
-              <View>
-                <Text>Onboarding</Text>
-              </View>
+              <LottieView
+                style={styles.lottie}
+                source={require("../assets/animations/work.json")}
+                autoPlay
+                loop
+              />
             ),
             title: "Work Seamlessly",
             subtitle: "Get your work done seamlessly without interruption",
@@ -34,9 +40,12 @@ const OnboardingScreen = () => {
           {
             backgroundColor: "#a78bfa",
             image: (
-              <View>
-                <Text>Onboarding</Text>
-              </View>
+              <LottieView
+                style={styles.lottie}
+                source={require("../assets/animations/achieve.json")}
+                autoPlay
+                loop
+              />
             ),
             title: "Achieve Higher Goals",
             subtitle:
