@@ -8,19 +8,18 @@ import {
 import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import LottieView from "lottie-react-native";
-import { removeItem } from "../utils/asyncStorage";
+import { removeData } from "../utils/asyncStorage";
 import { useNavigation } from "@react-navigation/native";
 
 const { width, height } = Dimensions.get("window");
 
-const handleReset = async () => {
+const HomeScreen = () => {
   const navigation = useNavigation();
 
-  await removeItem("onboarded");
-  navigation.push("Onboarding");
-};
-
-const HomeScreen = () => {
+  const handleReset = async () => {
+    await removeData("onboarded");
+    navigation.push("Onboarding");
+  };
   return (
     <SafeAreaView style={styles.container}>
       <LottieView
