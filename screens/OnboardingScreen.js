@@ -1,14 +1,14 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import { SafeAreaView, StyleSheet, Text, View } from "react-native";
+import React from "react";
 
 const OnboardingScreen = () => {
   return (
-    <View>
+    <SafeAreaView>
       <Text>OnboardingScreen</Text>
-    </View>
-  )
-}
+    </SafeAreaView>
+  );
+};
 
-export default OnboardingScreen
+export default OnboardingScreen;
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({});
