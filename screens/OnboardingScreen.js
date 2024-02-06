@@ -10,6 +10,7 @@ import React from "react";
 import Onboarding from "react-native-onboarding-swiper";
 import LottieView from "lottie-react-native";
 import { useNavigation } from "@react-navigation/native";
+import { storeData } from "../utils/asyncStorage";
 
 const { width, height } = Dimensions.get("window");
 
@@ -18,6 +19,7 @@ const OnboardingScreen = () => {
 
   const handleDone = () => {
     navigation.navigate("Home");
+    storeData("onboarded", "1");
   };
 
   const doneButton = ({ ...props }) => {
