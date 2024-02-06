@@ -1,31 +1,27 @@
-import AsyncStorage from "@react-native-async-storage/async-storage";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
-export const storeData = async (value) => {
+export const setItem = async (key, value) => {
   try {
-    await AsyncStorage.setItem("my-key", value);
+    await AsyncStorage.setItem(key, value);
   } catch (error) {
-    console.error("Error Storing Value: ", error);
+    console.log('Error storing value: ', error);
   }
-
-  console.log("Done 1.");
 };
 
-export const getData = async () => {
-  try {
-    await AsyncStorage.getItem("my-key");
-  } catch (error) {
-    console.error("Error Storing Value: ", error);
-  }
 
-  console.log("Done 2.");
+export const getItem = async (key) => {
+    try {
+      const value = await AsyncStorage.getItem(key);
+      return value;
+    } catch (error) {
+      console.log('Error retrieving value: ', error);
+    }
 };
 
-export const removeData = async () => {
-  try {
-    await AsyncStorage.removeItem("my-key");
-  } catch (error) {
-    console.error("Error Storing Value: ", error);
-  }
-
-  console.log("Done 3.");
-};
+export const removeItem = async (key) =>{
+    try {
+        await AsyncStorage.removeItem(key);
+      } catch (error) {
+        console.log('Error deleting value: ', error);
+      }
+}

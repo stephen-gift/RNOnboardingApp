@@ -4,7 +4,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import HomeScreen from "../screens/HomeScreen";
 import OnboardingScreen from "../screens/OnboardingScreen";
-import { getData } from "../utils/asyncStorage";
+import { getItem } from "../utils/asyncStorage";
 
 const Stack = createNativeStackNavigator();
 
@@ -16,12 +16,12 @@ const AppNavigation = () => {
   }, []);
 
   const checkIfAlreadyOnboarded = async () => {
-    let onboarded = await getData("onboarded");
+    let onboarded = await getItem("onboarded");
     if (onboarded == 1) {
-      //   HIDE ONBOARDING
+      // hide onboarding
       setShowOnboarding(false);
     } else {
-      // SHOW ONBOARDING
+      // show onboarding
       setShowOnboarding(true);
     }
   };
@@ -52,14 +52,14 @@ const AppNavigation = () => {
       <NavigationContainer>
         <Stack.Navigator initialRouteName="Home">
           <Stack.Screen
-            name="Onboarding"
-            options={{ headerShown: false }}
-            component={OnboardingScreen}
-          />
-          <Stack.Screen
             name="Home"
             options={{ headerShown: false }}
             component={HomeScreen}
+          />
+          <Stack.Screen
+            name="Onboarding"
+            options={{ headerShown: false }}
+            component={OnboardingScreen}
           />
         </Stack.Navigator>
       </NavigationContainer>

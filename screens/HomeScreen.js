@@ -8,10 +8,15 @@ import {
 import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import LottieView from "lottie-react-native";
+import { removeItem } from "../utils/asyncStorage";
+import { useNavigation } from "@react-navigation/native";
 
 const { width, height } = Dimensions.get("window");
 
 const handleReset = async () => {
+  const navigation = useNavigation();
+
+  await removeItem("onboarded");
   navigation.push("Onboarding");
 };
 
