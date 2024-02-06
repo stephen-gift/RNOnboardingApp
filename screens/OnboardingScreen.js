@@ -2,13 +2,20 @@ import { Dimensions, SafeAreaView, StyleSheet, Text, View } from "react-native";
 import React from "react";
 import Onboarding from "react-native-onboarding-swiper";
 import LottieView from "lottie-react-native";
+import { useNavigation } from "@react-navigation/native";
 
 const { width, height } = Dimensions.get("window");
 
 const OnboardingScreen = () => {
+  const navigation = useNavigation();
+  const handleDone = () => {
+    navigation.navigate("Home");
+  };
   return (
     <SafeAreaView style={styles.container}>
       <Onboarding
+        onDone={handleDone}
+        onSkip={handleDone}
         containerStyles={{ paddingHorizontal: 15 }}
         pages={[
           {
