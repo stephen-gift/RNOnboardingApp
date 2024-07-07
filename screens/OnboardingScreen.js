@@ -91,8 +91,8 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
   },
   lottie: {
-    width: width * 0.9,
-    height: width,
+    width: width *2,
+    height: width / 1.5,
   },
   doneButton: {
     padding: 20,
